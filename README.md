@@ -1,6 +1,6 @@
 # Express-GraphQL Client
 
-__This is the frontend repo for a book application that uses React and Apollo __
+__This is the frontend repo for a book application that uses React and Apollo__
 
 ---
 
