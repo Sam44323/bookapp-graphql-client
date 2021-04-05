@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { gql } from "@apollo/client";
+import { graphql } from "@apollo/client/react/hoc";
 
 //creating a graphql query
 
@@ -15,6 +16,7 @@ const getBooksQuery = gql`
 
 class BookList extends Component {
   render() {
+    console.log(this.props);
     return (
       <div>
         <ul id="book-list">
@@ -25,4 +27,4 @@ class BookList extends Component {
   }
 }
 
-export default BookList;
+export default graphql(getBooksQuery)(BookList);

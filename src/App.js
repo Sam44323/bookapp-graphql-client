@@ -1,5 +1,5 @@
 import { ApolloClient } from "@apollo/client";
-import { ApolloProvider } from "@apollo/client"; // helps to inject the data to the application recieved from the server
+import { ApolloProvider, InMemoryCache } from "@apollo/client"; // helps to inject the data to the application recieved from the server
 import "./App.css";
 
 import BookList from "./components/BookList";
@@ -8,6 +8,7 @@ import BookList from "./components/BookList";
 
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql",
+  cache: new InMemoryCache(),
 });
 
 function App() {
