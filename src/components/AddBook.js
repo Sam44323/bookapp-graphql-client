@@ -18,7 +18,7 @@ class AddBook extends Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    console.log(this.state, "data");
   };
 
   authorOptions = () => {
