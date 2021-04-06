@@ -5,19 +5,27 @@ import { getBooksQuery } from "../utils/queries/queries";
 import BookDetails from "./BookDetails";
 
 class BookList extends Component {
+  state = {
+    bId: "",
+  };
+
   displayBooks = () => {
     const data = this.props.data;
     if (data.loading) {
       return <div>Loading Books...</div>;
     } else {
-      return data.books.map((book) => <li key={book.id}>{book.name}</li>);
+      return data.books.map((book) => (
+        <li key={book.id} onClick={() => this.setState({ bId: book.id })}>
+          {book.name}
+        </li>
+      ));
     }
   };
   render() {
     return (
       <div>
         <ul id="book-list">{this.displayBooks()}</ul>
-        <BookDetails />
+        <BookDetails bookId={this.state.bId} />
       </div>
     );
   }
