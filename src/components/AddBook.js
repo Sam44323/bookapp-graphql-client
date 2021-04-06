@@ -12,6 +12,17 @@ const getAuthorsQuery = gql`
 `;
 
 class AddBook extends Component {
+  authorOptions = () => {
+    const data = this.props.data;
+    if (data.loading) {
+      return;
+    }
+    return data.authors.map((author) => (
+      <option key={author.id} value={author.id}>
+        {author.name}
+      </option>
+    ));
+  };
   render() {
     return (
       <form id="add-book">
@@ -26,7 +37,8 @@ class AddBook extends Component {
         <div className="field">
           <label>Author</label>
           <select>
-            <option>Select Author</option>
+            <option>Select Authors</option>
+            {this.authorOptions()}
           </select>
         </div>
         <button>+</button>
