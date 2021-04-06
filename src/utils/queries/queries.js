@@ -30,9 +30,7 @@ export const getBookQuery = gql`
       name
       genre
       author {
-        id
         name
-        age
         books {
           id
           name
