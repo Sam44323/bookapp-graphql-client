@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { flowRight as compose } from "lodash";
 import { graphql } from "@apollo/client/react/hoc";
 
-import { getAuthorsQuery } from "../utils/queries/queries";
+import { getAuthorsQuery, addBookMutation } from "../utils/queries/queries";
 
 class AddBook extends Component {
   state = {
@@ -66,4 +67,7 @@ class AddBook extends Component {
   }
 }
 
-export default graphql(getAuthorsQuery)(AddBook);
+export default compose(
+  graphql(getAuthorsQuery, { name: "getAuthorsQuery" }),
+  graphql(addBookMutation, { name: "addBookMutation" })
+)(AddBook);
