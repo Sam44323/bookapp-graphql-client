@@ -3,6 +3,7 @@ import { ApolloProvider, InMemoryCache } from "@apollo/client"; // helps to inje
 import "./App.css";
 
 import BookList from "./components/BookList";
+import AddBook from "./components/AddBook";
 
 //setting up the apollo client
 
@@ -17,6 +18,7 @@ function App() {
       <div id="main">
         <h1>Bookworm</h1>
         <BookList />
+        <AddBook />
       </div>
     </ApolloProvider>
   );
