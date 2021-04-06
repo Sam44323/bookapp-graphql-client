@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { flowRight as compose } from "lodash";
 import { graphql } from "@apollo/client/react/hoc";
 
+import styles from "../styles/AddBook.module.css";
+
 import {
   getAuthorsQuery,
   addBookMutation,
@@ -56,8 +58,8 @@ class AddBook extends Component {
 
   render() {
     return (
-      <form id="add-book">
-        <div className="field">
+      <form id={styles.addBook}>
+        <div className={styles.field}>
           <label>Book Name</label>
           <input
             type="text"
@@ -65,7 +67,7 @@ class AddBook extends Component {
             onChange={(e) => this.changeValue("bkname", e.target.value)}
           />
         </div>
-        <div className="field">
+        <div className={styles.field}>
           <label>Genre</label>
           <input
             type="text"
@@ -73,7 +75,7 @@ class AddBook extends Component {
             onChange={(e) => this.changeValue("genre", e.target.value)}
           />
         </div>
-        <div className="field">
+        <div className={styles.field}>
           <label>Author</label>
           <select
             onChange={(e) => this.changeValue("authorId", e.target.value)}

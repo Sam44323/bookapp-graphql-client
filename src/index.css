@@ -1,4 +1,16 @@
 body {
+  box-sizing: border-box;
   background-color: #eee;
   font-family: "Fira code", sans-serif;
+}
+
+#main h1 {
+  color: #444;
+  text-align: center;
+}
+
+#main {
+  padding: 0px;
+  width: 60%;
+  height: 100%;
 }

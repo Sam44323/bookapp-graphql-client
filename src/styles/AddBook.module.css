@@ -1,0 +1,38 @@
+#addBook {
+  background-color: #fff;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 400px;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#addBook label {
+  text-align: right;
+  padding: 6px;
+}
+
+#addBook input,
+#addBook select {
+  margin: 4px;
+  padding: 6px;
+}
+
+#addBook button {
+  color: #fff;
+  font-size: 2em;
+  background: #ad1457;
+  border: 0px;
+  padding: 0px 10px;
+  border-radius: 47%;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}

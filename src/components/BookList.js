@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 
+import styles from "../styles/BookList.module.css";
 import { getBooksQuery } from "../utils/queries/queries";
 import BookDetails from "./BookDetails";
 
@@ -24,7 +25,7 @@ class BookList extends Component {
   render() {
     return (
       <div>
-        <ul id="book-list">{this.displayBooks()}</ul>
+        <ul id={styles.bookList}>{this.displayBooks()}</ul>
         <BookDetails bookId={this.state.bId} />
       </div>
     );

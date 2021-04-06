@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 import { getBookQuery } from "../utils/queries/queries";
 
+import styles from "../styles/BookDetails.module.css";
+
 class BookDetails extends Component {
   displayBooksData() {
     const book = this.props.data.book;
@@ -12,7 +14,7 @@ class BookDetails extends Component {
           <p>{book.genre}</p>
           <p>{book.author.name}</p>
           <p>All Books by this author!</p>
-          <ul className="other-books">
+          <ul className={styles.otherBooks}>
             {book.author.books.map((book) => (
               <li key={book.id}>{book.name}</li>
             ))}
@@ -25,7 +27,7 @@ class BookDetails extends Component {
   }
 
   render() {
-    return <div id="book-details">{this.displayBooksData()}</div>;
+    return <div id={styles.bookDetails}>{this.displayBooksData()}</div>;
   }
 }
 
