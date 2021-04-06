@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { gql } from "@apollo/client";
 import { graphql } from "@apollo/client/react/hoc";
 
-//creating a graphql query
-
 const getAuthorsQuery = gql`
   {
     authors {
