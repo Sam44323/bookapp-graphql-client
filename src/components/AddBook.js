@@ -19,14 +19,14 @@ class AddBook extends Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    this.props.addBookMutation();
   };
 
   authorOptions = () => {
-    if (this.props.data.loading) {
+    if (this.props.getAuthorsQuery.loading) {
       return;
     }
-    return this.props.data.authors.map((author) => (
+    return this.props.getAuthorsQuery.authors.map((author) => (
       <option key={author.id} value={author.id}>
         {author.name}
       </option>
