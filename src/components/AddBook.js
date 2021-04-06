@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import { flowRight as compose } from "lodash";
 import { graphql } from "@apollo/client/react/hoc";
 
-import { getAuthorsQuery, addBookMutation } from "../utils/queries/queries";
+import {
+  getAuthorsQuery,
+  addBookMutation,
+  getBooksQuery,
+} from "../utils/queries/queries";
 
 class AddBook extends Component {
   state = {
@@ -19,7 +23,24 @@ class AddBook extends Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    this.props.addBookMutation();
+    const { bkname, genre, authorId } = this.state;
+    this.props.addBookMutation({
+      variables: {
+        name: bkname,
+        genre,
+        authorId,
+      },
+      refetchQueries: [
+        {
+          query: getBooksQuery,
+        },
+      ],
+    });
+    this.setState({
+      bkname: "",
+      genre: "",
+      authorId: "",
+    });
   };
 
   authorOptions = () => {
@@ -57,11 +78,16 @@ class AddBook extends Component {
           <select
             onChange={(e) => this.changeValue("authorId", e.target.value)}
           >
-            <option>Select Authors</option>
+            <option value="">Select Authors</option>
             {this.authorOptions()}
           </select>
         </div>
-        <button onClick={(e) => this.submitForm(e)}>+</button>
+        <button
+          onClick={(e) => this.submitForm(e)}
+          disabled={this.state.authorId === ""}
+        >
+          +
+        </button>
       </form>
     );
   }
