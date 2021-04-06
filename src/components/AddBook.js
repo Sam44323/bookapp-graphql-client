@@ -13,11 +13,10 @@ const getAuthorsQuery = gql`
 
 class AddBook extends Component {
   authorOptions = () => {
-    const data = this.props.data;
-    if (data.loading) {
+    if (this.props.data.loading) {
       return;
     }
-    return data.authors.map((author) => (
+    return this.props.data.authors.map((author) => (
       <option key={author.id} value={author.id}>
         {author.name}
       </option>
